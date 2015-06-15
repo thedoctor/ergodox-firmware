@@ -123,7 +123,7 @@ import os
 import re
 import subprocess
 import sys
-
+from datetime import datetime
 # -----------------------------------------------------------------------------
 
 def gen_static(current_date=None, git_commit_date=None, git_commit_id=None):
@@ -429,12 +429,12 @@ def main():
             '--current-date',
             help = ( "should be in the format rfc-3339 "
                    + "(e.g. 2006-08-07 12:34:56-06:00)" ),
-            default = '2006-08-07 12:34:56-06:00' )
+            default = datetime.now().isoformat() )
     arg_parser.add_argument(
             '--git-commit-date',
             help = ( "should be in the format rfc-3339 "
                    + "(e.g. 2006-08-07 12:34:56-06:00)" ),
-            default = '2006-08-07 12:34:56-06:00' )
+            default = datetime.now().isoformat() )
     arg_parser.add_argument(
             '--git-commit-id',
             help = "the git commit ID",

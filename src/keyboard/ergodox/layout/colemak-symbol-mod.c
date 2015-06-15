@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
  * ergoDOX layout : COLEMAK (modified from the Kinesis layout)
- * 
+ *
  * Submitted by Jason Trill [jjt] (https://github.com/jjt)
  * ----------------------------------------------------------------------------
  * Copyright (c) 2012 Ben Blazak <benblazak.dev@gmail.com>
@@ -30,10 +30,10 @@ const uint8_t PROGMEM _kb_layout[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     _ctrlL,     _A,         _R,         _S,         _T,         _D,
     _shiftL,    _Z,         _X,         _C,         _V,         _B,         2,
     _guiL,      _grave,     _backslash, _altL,      1,
-    
+
                                                                 _ctrlL,     _altL,
                                                     0,          0,          _home,
-                                                    _space,     _enter,     _end,
+                                                    _ctrlL,     _guiL,      _end,
 
     // right hand
     3,          _6,         _7,         _8,         _9,         _0,         _dash,
@@ -42,9 +42,9 @@ const uint8_t PROGMEM _kb_layout[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     3,          _K,         _M,         _comma,     _period,    _slash,     _shiftR,
                             1,          _arrowL,    _arrowD,    _arrowU,    _arrowR,
 
-    _altR,      _ctrlR,
+    _bs,        _del,
     _pageU,     0,          0,
-    _pageD,     _del,       _bs ),
+    _pageD,     _space,     _enter ),
 
 
     // LAYOUT L1: function and symbol keys
@@ -71,7 +71,7 @@ const uint8_t PROGMEM _kb_layout[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     0,          0,          0 ),
 
 
-    // LAYOUT L2: QWERTY alphanum 
+    // LAYOUT L2: QWERTY alphanum
     KB_MATRIX_LAYER( 0,
     // left hand
     0,          _1,         _2,         _3,         _4,         _5,         0,
@@ -85,11 +85,11 @@ const uint8_t PROGMEM _kb_layout[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
                                                     0,          0,          0,
     // right hand
     0,          _6,         _7,         _8,         _9,         _0,         0,
-    0,          _Y,         _U,         _I,         _O,         _P,         0, 
+    0,          _Y,         _U,         _I,         _O,         _P,         0,
                 _H,         _J,         _K,         _L,         _semicolon, 0,
     0,          _N,         _M,         _comma,     _period,    _slash,     0,
                             0,          0,          0,          0,          0,
-                            
+
     0,          0,
     0,          0,          0,
     0,          0,          0 ),
@@ -171,10 +171,10 @@ const void_funptr_t PROGMEM _kb_layout_press[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     // left hand
     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     lpush2,
     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
-    kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     
+    kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     s2kcap,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     lpush2,
     kprrel,     kprrel,     kprrel,     kprrel,     lpush1,
-    
+
                                                                 kprrel,     kprrel,
                                                     NULL,       NULL,       kprrel,
                                                     kprrel,     kprrel,     kprrel,
@@ -188,7 +188,7 @@ const void_funptr_t PROGMEM _kb_layout_press[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     kprrel,     kprrel,
     kprrel,     NULL,       NULL,
     kprrel,     kprrel,     kprrel ),
-    
+
 
     // PRESS L1: function and symbol keys
     KB_MATRIX_LAYER( NULL,
@@ -213,17 +213,17 @@ const void_funptr_t PROGMEM _kb_layout_press[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     ktrans,     ktrans,     ktrans,
     ktrans,     ktrans,     ktrans ),
 
-    
-    // PRESS L2: QWERTY 
+
+    // PRESS L2: QWERTY
     KB_MATRIX_LAYER( NULL,
     // left hand
     ktrans,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     lpop2,
     ktrans,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     ktrans,
-    ktrans,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     
+    ktrans,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     ktrans,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     ktrans,
     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,
 
-                                                                ktrans,     ktrans,     
+                                                                ktrans,     ktrans,
                                                     ktrans,     ktrans,     ktrans,
                                                     ktrans,     ktrans,     ktrans,
     // right hand
@@ -233,7 +233,7 @@ const void_funptr_t PROGMEM _kb_layout_press[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     ktrans,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     ktrans,
                             ktrans,     ktrans,     ktrans,     ktrans,     ktrans,
 
-    ktrans,     ktrans,     
+    ktrans,     ktrans,
     ktrans,     ktrans,     ktrans,
     ktrans,     ktrans,     ktrans ),
 
@@ -243,11 +243,11 @@ const void_funptr_t PROGMEM _kb_layout_press[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     // left hand
     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,
     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,
-    ktrans,     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,     
+    ktrans,     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,
     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,     ktrans,
     ktrans,     kprrel,     ktrans,     ktrans,     ktrans,
 
-                                                                ktrans,     ktrans,     
+                                                                ktrans,     ktrans,
                                                     ktrans,     ktrans,     ktrans,
                                                     ktrans,     ktrans,     ktrans,
     // right hand
@@ -256,7 +256,7 @@ const void_funptr_t PROGMEM _kb_layout_press[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
                 ktrans,     kprrel,     kprrel,     kprrel,     kprrel,     ktrans,
     ktrans,     ktrans,     kprrel,     kprrel,     kprrel,     kprrel,     ktrans,
                             ktrans,     ktrans,     kprrel,     kprrel,     ktrans,
-                
+
     ktrans,     ktrans,
     ktrans,     ktrans,     ktrans,
     ktrans,     ktrans,     kprrel ),
@@ -310,7 +310,7 @@ const void_funptr_t PROGMEM _kb_layout_release[KB_LAYERS][KB_ROWS][KB_COLUMNS] =
                 kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     ktrans,     sshprre,    sshprre,    sshprre,    sshprre,    sshprre,    ktrans,
                             ktrans,     ktrans,     ktrans,     ktrans,     ktrans,
-                            
+
     ktrans,     ktrans,
     ktrans,     ktrans,     ktrans,
     ktrans,     ktrans,     ktrans ),
@@ -380,4 +380,3 @@ const void_funptr_t PROGMEM _kb_layout_release[KB_LAYERS][KB_ROWS][KB_COLUMNS] =
     lpush7, lpop7,  NULL,   NULL,   NULL,   NULL,   NULL,   NULL )
 
 };
-

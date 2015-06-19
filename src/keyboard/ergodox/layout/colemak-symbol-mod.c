@@ -27,8 +27,8 @@ const uint8_t PROGMEM _kb_layout[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     // left hand
     _equal,     _1,         _2,         _3,         _4,         _5,         2,
     _tab,       _Q,         _W,         _F,         _P,         _G,         _esc,
-    _ctrlL,     _A,         _R,         _S,         _T,         _D,
-    _shiftL,    _Z,         _X,         _C,         _V,         _B,         2,
+    _altL,      _A,         _R,         _S,         _T,         _D,
+    _shiftL,    _Z,         _X,         _C,         _V,         _B,         KEY_ReturnEnter,
     _guiL,      _grave,     _backslash, _altL,      1,
 
                                                                 _ctrlL,     _altL,
@@ -39,12 +39,12 @@ const uint8_t PROGMEM _kb_layout[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     3,          _6,         _7,         _8,         _9,         _0,         _dash,
     _esc,       _J,         _L,         _U,         _Y,         _semicolon, _backslash,
                 _H,         _N,         _E,         _I,         _O,         _quote,
-    3,          _K,         _M,         _comma,     _period,    _slash,     _shiftR,
+    KEY_ReturnEnter,     _K,         _M,         _comma,     _period,    _slash,     _shiftR,
                             1,          _arrowL,    _arrowD,    _arrowU,    _arrowR,
-
-    _bs,        _del,
+    //v- That key and the 3 above it don't seem to work.
+    _del,       _del,
     _pageU,     0,          0,
-    _pageD,     _space,     _enter ),
+    _pageD,     _bs,     _space ),
 
 
     // LAYOUT L1: function and symbol keys
@@ -62,7 +62,7 @@ const uint8_t PROGMEM _kb_layout[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     // right hand
     _F12,       _F6,        _F7,        _F8,        _F9,        _F10,       _power,
     0,          0,          _equal,     _equal,     _dash,      _dash,      0,
-                _arrowL,    _arrowD,    _arrowU,    _arrowR,    0,          0,
+                0,          _arrowL,    _arrowD,    _arrowU,    _arrowR,    0,
     0,          _6,         _7,         _8,         _9,         _0,         _mute,
                             0,          0,          0,          0,          0,
 
@@ -169,10 +169,10 @@ const void_funptr_t PROGMEM _kb_layout_press[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     // PRESS L0: COLEMAK
     KB_MATRIX_LAYER( NULL,
     // left hand
-    kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     lpush2,
+    kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
-    s2kcap,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     lpush2,
+    s2kcap,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     kprrel,     kprrel,     kprrel,     kprrel,     lpush1,
 
                                                                 kprrel,     kprrel,
@@ -182,7 +182,7 @@ const void_funptr_t PROGMEM _kb_layout_press[KB_LAYERS][KB_ROWS][KB_COLUMNS] = {
     slpunum,    kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
                 kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
-    slpunum,    kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     s2kcap,
+    kprrel,    kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     s2kcap,
                             lpush1,     kprrel,     kprrel,     kprrel,     kprrel,
 
     kprrel,     kprrel,
@@ -274,7 +274,7 @@ const void_funptr_t PROGMEM _kb_layout_release[KB_LAYERS][KB_ROWS][KB_COLUMNS] =
     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     NULL,
     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
-    s2kcap,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     lpop2,
+    s2kcap,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     kprrel,     kprrel,     kprrel,     kprrel,     lpop1,
 
                                                                 kprrel,     kprrel,
@@ -284,7 +284,7 @@ const void_funptr_t PROGMEM _kb_layout_release[KB_LAYERS][KB_ROWS][KB_COLUMNS] =
     NULL,       kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
                 kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,
-    slponum,    kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     s2kcap,
+    kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     kprrel,     s2kcap,
                             lpop1,      kprrel,     kprrel,     kprrel,     kprrel,
 
     kprrel,     kprrel,
